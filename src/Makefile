@@ -1,4 +1,4 @@
-CFLAGS?=-g -O2
+CFLAGS?=-g -O2 -std=c++11
 
 all: cluebotng create_ann create_bayes_db print_bayes_db
 

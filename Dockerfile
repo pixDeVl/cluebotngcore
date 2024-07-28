@@ -1,12 +1,12 @@
-FROM debian:9 AS builder
+FROM debian:12 AS builder
 # Install system dependencies
-# Note: For libfann, Jessie: 2.1.0, Stretch: 2.2.0
-RUN echo 'deb http://deb.debian.org/debian jessie main' >> /etc/apt/sources.list
+# Note: For libfann, Bookwork: 12.6
+# RUN echo 'deb http://deb.debian.org/debian bookworm main' >> /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install -y build-essential libboost-system-dev libboost-thread-dev \
                        libexpat1-dev libmatheval-dev libconfig++-dev \
                        libboost-dev wget libdb5.3++-dev file libfl-dev libc6-dev \
-                       libfann-dev=2.1.0~beta+dfsg-1 libfann2=2.1.0~beta+dfsg-1
+                       libfann-dev=2.2.0+ds-8 libfann2=2.2.0+ds-8
 
 # Build Libiconv
 RUN cd /usr/src && wget https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.16.tar.gz && tar -xvf libiconv-1.16.tar.gz
